@@ -9,7 +9,9 @@ LABEL stage=compiler
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update; \
+RUN \
+    --mount=type=cache,target=/var/cache/apt \
+    apt-get update; \
     apt-get install -yqq --no-install-recommends \
     build-essential gcc software-properties-common python3-psycopg2 libpq-dev python3-dev
 
@@ -22,7 +24,9 @@ RUN pip install --default-timeout=100 --quiet --no-cache-dir wheel
 COPY requirements/base.txt .
 COPY requirements/production.txt .
 
-RUN pip install --default-timeout=100 --quiet --no-cache-dir -r ./production.txt
+RUN \
+    --mount=type=cache,target=/root/.cache \
+    pip install --default-timeout=100 --quiet --no-cache-dir -r ./production.txt
 
 RUN find /opt/venv -type f -name "*.pyc" -delete 2>/dev/null
 RUN find /opt/venv -type f -name "*.pyo" -delete 2>/dev/null
@@ -45,7 +49,9 @@ ENV PATH="/opt/venv/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && \
+RUN \
+    --mount=type=cache,target=/var/cache/apt \
+    apt-get update && \
     apt-get install -yqq --no-install-recommends \
     supervisor wget nano curl python3-psycopg2
 
@@ -89,7 +95,9 @@ ENV PATH="/opt/venv/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && \
+RUN \
+    --mount=type=cache,target=/var/cache/apt \
+    apt-get update && \
     apt-get install -yqq --no-install-recommends \
     supervisor wget nano curl python3-psycopg2
 

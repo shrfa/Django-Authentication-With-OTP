@@ -28,5 +28,6 @@ until postgres_ready; do
 done
 >&2 echo 'PostgreSQL is available'
 
+mkdir -p /var/log/supervisor
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf

@@ -4,7 +4,8 @@ services:
   backend:
     build:
       context: ./
-      dockerfile: ./Dockerfile.local
+      dockerfile: ./Dockerfile
+      target: build-local
     restart: unless-stopped
     container_name: starter_backend
     hostname: starter_backend

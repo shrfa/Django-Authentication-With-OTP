@@ -4,7 +4,8 @@ services:
   backend:
     build:
       context: ./
-      dockerfile: ./Dockerfile.prod
+      dockerfile: ./Dockerfile
+      target: build-prod
     restart: unless-stopped
     container_name: starter_backend_prod
     hostname: starter_backend_prod

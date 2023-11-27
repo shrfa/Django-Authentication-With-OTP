@@ -134,7 +134,7 @@ Then follow these steps to set up the firebase configuration.
 5. Rename the json file to `firebase_key.json`.
 6. if `FIREBASE_CREDENTIALS_FILE_NAME` should be anything rather than `firebase_key.json`, it must be added in
    **.gitignore**
-   and change the file name in **Dockerfiles**. (If you have changed the file name in **step 5** you can skip this
+   and change the file name in **Dockerfile**. (If you have changed the file name in **step 5** you can skip this
    step.)
 7. Set `FIREBASE_CREDENTIALS_FILE_NAME` with the credential file name. You can access
    this variable within `django-starter/envs/.django.example`.

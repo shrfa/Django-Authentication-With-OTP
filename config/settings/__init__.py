@@ -7,3 +7,4 @@ from config.settings.handler import *
 from config.settings.redis import *
 from config.settings.rest_framework import *
 from config.settings.swagger import *
+from config.settings.otp import *

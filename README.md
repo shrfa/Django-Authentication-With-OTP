@@ -161,5 +161,5 @@ $ docker compose -f docker-compose.local.yml run backend python manage.py rename
 
 ### Database host & name
 
-**Note #1:** If you are going to change database container name from starter_database to another name such as project_x_database. consider to change the .postgres env file accordingly. You should set the host name
+**Note #1:** If you are going to change database container name from authentication_database to another name such as project_x_database. consider to change the .postgres env file accordingly. You should set the host name
 to project_x_database.

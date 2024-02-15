@@ -18,11 +18,15 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     "core",
+    "apps.users",
 ]
 
 # CHECK IF INSTALLED APPS INCLUDE THE PACKAGE FIRST
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "drf_spectacular",
+    "rest_framework_simplejwt",
+]
 
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-

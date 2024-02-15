@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #F8FCFF;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #F6FAFD;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin : 10px, 20px, 10px, 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .header {
+            background-color: #E8001C;
+            padding: 20px;
+            text-align: center;
+            color: #FBFCFE;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .content {
+            padding: 20px;
+            color: #0E3B59;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #E8001C;
+            color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="header">
+                <h1>HRT.org</h1>
+            </div>
+
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <div class="footer">
+                <p>Sincerely,</p>
+                <p>HRT Team</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

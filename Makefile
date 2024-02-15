@@ -50,6 +50,22 @@ up:
 down:
 	docker compose -f ./docker-compose.local.yml down
 
+makemigrations:
+	docker-compose -f ./docker-compose.local.yml exec backend python manage.py makemigrations
+
+migrate:
+	docker-compose -f ./docker-compose.local.yml exec backend python manage.py migrate
+
+backend-bash:
+	docker-compose -f ./docker-compose.local.yml exec backend bash
+
+database-bash:
+	docker-compose -f ./docker-compose.local.yml exec database bash
+
+test:
+	docker-compose -f ./docker-compose.local.yml exec backend python manage.py test apps.users.tests.test_models
+
+
 format:
 	black **/*.py --exclude '\.venv/|\.git/'
 

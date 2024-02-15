@@ -33,8 +33,8 @@ services:
   database:
     image: postgres:14
     restart: unless-stopped
-    container_name: starter_database_prod
-    hostname: starter_database_prod
+    container_name: authentication_database_prod
+    hostname: authentication_database_prod
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
     env_file:

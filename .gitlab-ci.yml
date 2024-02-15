@@ -1,22 +1,20 @@
+stages:
+  - build
+  - deploy
+
 variables:
-  PROJECT_NAME: @PROJECT_NAME@
+  IMAGE_NAME: your-django-app
+  DOCKER_COMPOSE_FILE: docker-compose.yml
 
-workflow:
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      when: never
-    - if: '$CI_COMMIT_REF_NAME == "develop"'
-      when: always
-      variables:
-        ENVIRONMENT_URL: @APP URL@
-        TARGET_HOST: docker-server-1
-        TARGET_POSTGRES_HOST: db-server-1
-    - when: never
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
 
-include:
-  - project: 'webcentriq-next/felixin'
-    ref: latest
-    file: '/ci/backend/with-docker.gitlab-ci.yml'
-  - project: 'webcentriq-next/felixin'
-    ref: latest
-    file: '/ci/db/postgres.gitlab-ci.yml'
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_NAME .
+
+deploy:
+  stage: deploy
+  script:
+    - docker-compose -f $DOCKER_COMPOSE_FILE up -d

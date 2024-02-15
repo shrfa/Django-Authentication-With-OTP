@@ -1,4 +1,4 @@
-from .handler import BASE_DIR
+from .handler import BASE_DIR, env
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "static/"

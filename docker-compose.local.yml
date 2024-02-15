@@ -7,8 +7,8 @@ services:
       dockerfile: ./Dockerfile
       target: build-local
     restart: unless-stopped
-    container_name: starter_backend
-    hostname: starter_backend
+    container_name: authentication_backend
+    hostname: authentication_backend
     volumes:
       - .:/app
     env_file:
@@ -34,8 +34,8 @@ services:
   database:
     image: postgres:14-alpine
     restart: unless-stopped
-    container_name: starter_database
-    hostname: starter_database
+    container_name: authentication_database
+    hostname: authentication_database
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
     env_file:
@@ -52,8 +52,8 @@ services:
   redis:
     image: redis:7-alpine
     restart: unless-stopped
-    container_name: starter_redis
-    hostname: starter_redis
+    container_name: authentication_redis
+    hostname: authentication_redis
     volumes:
       - ./redis_data:/bitnami/redis/data
     env_file:
